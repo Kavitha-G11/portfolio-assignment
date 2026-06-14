@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Jane Doe | Get In Touch</title>
+  <meta name="description" content="Reach out to Jane Doe for professional frontend development contracts, consulting work, or accessibility audits.">
+  <link rel="canonical" href="https://example.com/contact.html">
+  <link rel="stylesheet" href="style.css">
+  <meta name="robots" content="index, follow">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-container">
+      <span class="site-logo" aria-label="Jane Doe Portfolio Home">JD.</span>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="contact-page-modifier">
+    <section class="contact-section" aria-labelledby="form-heading">
+      <h1 id="form-heading">Let's Connect</h1>
+      <p>Fill out the accessible form below, and I will get back to your inquiry within 24 business hours.</p>
+
+      <form action="#" method="POST" class="accessible-form">
+        
+        <div class="form-group">
+          <label for="full-name">Full Name <span class="required-indicator" aria-hidden="true">*</span></label>
+          <input type="text" id="full-name" name="name" required aria-required="true" autocomplete="name" placeholder="e.g. Jane Doe">
+        </div>
+
+        <div class="form-group">
+          <label for="email-address">Email Address <span class="required-indicator" aria-hidden="true">*</span></label>
+          <input type="email" id="email-address" name="email" required aria-required="true" autocomplete="email" placeholder="name@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="msg-subject">Subject</label>
+          <input type="text" id="msg-subject" name="subject" placeholder="Project Inquiry, Consultation...">
+        </div>
+
+        <div class="form-group">
+          <label for="user-message">Message <span class="required-indicator" aria-hidden="true">*</span></label>
+          <textarea id="user-message" name="message" rows="5" required aria-required="true" placeholder="Describe your project guidelines or question here..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit-action" aria-label="Submit message form entries">Send Message</button>
+
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Jane Doe. All rights reserved. Built with strict HTML5 and WCAG structural optimization rules.</p>
+  </footer>
+
+</body>
+</html>

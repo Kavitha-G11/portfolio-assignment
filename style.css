@@ -1,0 +1,362 @@
+/* ==========================================================================
+   1. DESIGN TOKENS, CORE THEME VARIABLES, & SYSTEM ACCESSIBILITY PREFERENCES
+   ========================================================================== */
+:root {
+  /* Light Mode Color Spectrum Map Tokens */
+  --bg-primary: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-input: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-color: #2563eb;
+  --accent-hover: #1d4ed8;
+  --border-element: #cbd5e1;
+  --shadow-card: 0 4px 12px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --shadow-hover: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
+  --border-radius-lg: 12px;
+  --border-radius-sm: 6px;
+  --global-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Automatic Cascading System Dark Theme Mode Shift Trigger */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #0f172a;
+    --bg-surface: #1e293b;
+    --bg-input: #0f172a;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #3b82f6;
+    --accent-hover: #60a5fa;
+    --border-element: #334155;
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Base Document Formatting Normalization rules */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: background-color var(--global-transition), color var(--global-transition);
+}
+
+/* Focus Outline Standardization for Enhanced Keyboard Navigation Accessibility */
+*:focus-visible {
+  outline: 3px dashed var(--accent-color);
+  outline-offset: 4px;
+}
+
+/* Accessible Structural Skip Link */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 1.5rem;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+  z-index: 999;
+  transition: top 0.2s ease-in-out;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ==========================================================================
+   2. HEADER CONTAINER & NAVIGATION MENU BAR SYSTEM (Flexbox Layout Blueprint)
+   ========================================================================== */
+.site-header {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-element);
+  padding: 1.25rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column; /* Mobile stacking configuration */
+  align-items: center;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.site-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--accent-color);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.75rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.25rem 0;
+  transition: color var(--global-transition);
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+/* ==========================================================================
+   3. STRUCTURAL CONTENT MESH GRID SYSTEM LAYOUT ARCHITECTURE (CSS Grid Framework)
+   ========================================================================== */
+#main-content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr; /* Stacks linearly for mobile viewports */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+/* Left Content Stack Layout Wrapper */
+.content-primary-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Presentation Panel Cards Styling Architecture */
+.hero-section,
+.philosophy-section,
+.sidebar-section,
+.contact-section {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-element);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--global-transition), transform var(--global-transition);
+}
+
+.hero-section:hover,
+.philosophy-section:hover,
+.sidebar-section:hover,
+.contact-section:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+/* Document Typography Rule Hierarchies */
+h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--bg-primary);
+  padding-bottom: 0.5rem;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Action Trigger Elements Buttons */
+.btn-primary {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  transition: background-color var(--global-transition), transform 0.1s ease;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Sidebar Item Internal Elements Card styling */
+.project-card {
+  margin-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-element);
+}
+
+.project-card:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.project-link {
+  color: var(--accent-color);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. FORM UI COMPONENT MODULE ELEMENTS AND SPACING
+   ========================================================================== */
+.accessible-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.required-indicator {
+  color: #dc2626;
+  margin-left: 0.15rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-element);
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  border-radius: var(--border-radius-sm);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color var(--global-transition), box-shadow var(--global-transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+/* Form Action Submission Key Element button styling override */
+.btn-submit-action {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border: none;
+  padding: 0.9rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color var(--global-transition), transform 0.1s ease;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+.btn-submit-action:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn-submit-action:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   5. SITE FOOTER SPECIFICATION BLOCKS
+   ========================================================================== */
+.site-footer {
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-element);
+  padding: 1.5rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.site-footer p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE ARCHITECTURE MEDIA QUERIES (Mobile-First Extensions)
+   ========================================================================== */
+
+/* Tablet Mode Viewport Layout Modifiers (Width >= 650px) */
+@media (min-width: 650px) {
+  .header-container {
+    flex-direction: row; /* Converts vertical stacks into space-between layout flows */
+    justify-content: space-between;
+  }
+}
+
+/* Desktop Master Layout 2D Structural Grid Separation Framework (Width >= 950px) */
+@media (min-width: 950px) {
+  #main-content {
+    /* Allocates 2 unequal columns layout grid: Primary elements take 2 units, Sidebar sidebar takes 1 unit */
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+  }
+
+  /* Specific visual balance targeting for the dedicated Contact Section layout block */
+  #main-content.contact-page-modifier {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-section {
+    max-width: 750px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
