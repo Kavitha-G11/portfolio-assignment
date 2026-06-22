@@ -1,0 +1,204 @@
+/* Color Palette Variables matching earlier Portfolio themes */
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-surface: #ffffff;
+    --bg-app: #f8fafc;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-ui: #e2e8f0;
+    --success-green: #10b981;
+    --danger-red: #ef4444;
+    --radius-md: 8px;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* Global Core Resets */
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation System Layout */
+nav {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-ui);
+    padding: 1rem 2rem;
+}
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+/* Application Wrapper Grid Layout */
+.todo-main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3rem 1.5rem;
+}
+
+.todo-card {
+    background-color: var(--bg-surface);
+    width: 100%;
+    max-width: 550px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-ui);
+    padding: 2rem;
+}
+
+.todo-card-header h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.75rem;
+}
+.todo-card-header p {
+    color: var(--text-muted);
+    margin: 0 0 1.5rem 0;
+}
+
+/* Accessible Interactive Form Layout */
+.input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+#todo-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-ui);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+#todo-input:focus {
+    border-color: var(--primary-color);
+}
+#add-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+}
+#add-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Action Control Menu Panels */
+.filter-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-ui);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+.filter-buttons {
+    display: flex;
+    gap: 0.25rem;
+}
+.filter-btn {
+    background: none;
+    border: 1px solid transparent;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+.filter-btn:hover {
+    border-color: var(--border-ui);
+}
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Dynamic Item Render Container List Styling */
+#todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-ui);
+    border-radius: var(--radius-md);
+    margin-bottom: 0.5rem;
+    background-color: var(--bg-app);
+}
+.todo-item-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.todo-checkbox {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+}
+.todo-text {
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: var(--danger-red);
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0.25rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    border-top: 1px solid var(--border-ui);
+    background-color: var(--bg-surface);
+}

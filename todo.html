@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager — Portfolio Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav aria-label="Main Navigation">
+            <div class="nav-container">
+                <a href="../index.html" class="logo">Portfolio App</a>
+                <ul class="nav-links">
+                    <li><a href="../Thiranex task 2/index.html">Home</a></li>
+                    <li><a href="todo.html" class="active" aria-current="page">Task Tracker</a></li>></li>
+                    <li><a href="../Thiranex task 2/contact.html">contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="todo-main">
+        <section class="todo-card" aria-labelledby="todo-heading">
+            <header class="todo-card-header">
+                <h1 id="todo-heading">Workspace Tasks</h1>
+                <p>Manage your core development milestones with local state tracking.</p>
+            </header>
+
+            <form id="todo-form" aria-label="Add a new milestone task">
+                <div class="input-group">
+                    <input type="text" id="todo-input" placeholder="Enter a new milestone task..." required aria-label="Task item description text">
+                    <button type="submit" id="add-btn">Add Task</button>
+                </div>
+            </form>
+
+            <div class="filter-controls">
+                <span id="items-left" aria-live="polite">0 tasks remaining</span>
+                <div class="filter-buttons" role="group" aria-label="Filter tasks execution panel">
+                    <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                    <button type="button" class="filter-btn" data-filter="active" aria-pressed="false">Active</button>
+                    <button type="button" class="filter-btn" data-filter="completed" aria-pressed="false">Completed</button>
+                </div>
+            </div>
+
+            <ul id="todo-list" aria-label="Current workspace milestone list">
+                </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portfolio App Dashboard. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
