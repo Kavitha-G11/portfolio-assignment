@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard - Portfolio Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav aria-label="Main Navigation">
+            <div class="nav-container">
+                <a href="../Task-202/index.html" class="logo">Portfolio App</a>
+                <ul class="nav-links">
+                    <li><a href="../Thiranex task 2/index.html">Home</a></li>
+                    <li><a href="../Thiranex task 3/todo.html">Task Tracker</a></li>
+                    <li><a href="weather.html" class="active" aria-current="page">Weather</a></li>
+                    <li><a href="../Thiranex task 2/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="weather-main">
+        <section class="weather-card">
+            <header class="weather-card-header">
+                <h1>Live Weather Dashboard</h1>
+                <p>Enter a city name to fetch real-time weather details.</p>
+            </header>
+
+            <div class="search-group">
+                <input type="text" id="city-input" placeholder="e.g. Chennai, London, New York..." aria-label="City Name">
+                <button id="search-btn">Get Weather</button>
+            </div>
+
+            <!-- Error message section -->
+            <div id="error-message" class="error-box hidden"></div>
+
+            <!-- Weather Output Display -->
+            <div id="weather-display" class="weather-output hidden">
+                <h2 id="city-name">City Name</h2>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <span class="label">Temperature</span>
+                        <span class="value" id="temp-val">--°C</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="label">Condition</span>
+                        <span class="value" id="condition-val">--</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="label">Humidity</span>
+                        <span class="value" id="humidity-val">--%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="label">Wind Speed</span>
+                        <span class="value" id="wind-val">-- km/h</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portfolio App Dashboard. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
